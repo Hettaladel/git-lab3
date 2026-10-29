@@ -9,6 +9,13 @@ document.getElementById("login-form").addEventListener("submit", function (event
     return;
   }
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    event.preventDefault();
+    alert("Please enter a valid email address.");
+    return;
+  }
+
   if (password.length < 6) {
     event.preventDefault();
     alert("Password must contain at least 6 characters.");
